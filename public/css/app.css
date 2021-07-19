@@ -1,38 +1,123 @@
-.App {
+@font-face {
+  font-family: rubik;
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts/rubik-light.woff2) format("woff2"), url(../fonts/rubik-light.woff) format("woff"), url(../fonts/rubik-light.ttf) format("truetype");
+  font-display: swap
+}
+
+@font-face {
+  font-family: rubik;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/rubik-regular.woff2) format("woff2"), url(../fonts/rubik-regular.woff) format("woff"), url(../fonts/rubik-regular.ttf) format("truetype");
+  font-display: swap
+}
+
+@font-face {
+  font-family: rubik;
+  font-style: normal;
+  font-weight: 500;
+  src: url(../fonts/rubik-medium.woff2) format("woff2"), url(../fonts/rubik-medium.woff) format("woff"), url(../fonts/rubik-medium.ttf) format("truetype");
+  font-display: swap
+}
+
+@font-face {
+  font-family: rubik;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/rubik-bold.woff2) format("woff2"), url(../fonts/rubik-bold.woff) format("woff"), url(../fonts/rubik-bold.ttf) format("truetype");
+  font-display: swap
+}
+
+html {
+  height: 100%;
+  font-family: rubik, arial, sans-serif;
+}
+
+body {
+  height: inherit;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+.main-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+
+.title-box {
+  display: flex;
+  justify-content: center;
+}
+
+.title-box__title {
+  font-size: 5em;
   text-align: center;
+  margin: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login-form {
+  display: flex;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-form__form {
+  width: 40%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-form__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.login-form__item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.login-form__label {
+  font-size: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
+.login-form__input {
+  height: 30px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+.login-form__input:hover {
+  border-color: black;
+}
+
+.login-form__button {
+  background-color: lightgray;
+  border: none;
+  font-size: 25px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.login-form__button:hover {
+  background-color: grey;
+}
+.login-form__button:active {
+  background-color: lightgray;
+  color: grey;
 }
