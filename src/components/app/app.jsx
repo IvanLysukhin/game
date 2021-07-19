@@ -1,6 +1,6 @@
 function App() {
     return (
-      <div className="main-container">
+      <div className="login-container">
         <section className="login-wrapper">
           <header className="title-box">
             <h1 className="title-box__title">Contacts book</h1>
