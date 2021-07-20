@@ -1,13 +1,13 @@
-import {useHistory} from 'react-router-dom';
-import {AppRoute} from '../../constants';
+import {useDispatch} from 'react-redux';
+import {login} from '../../store/actions';
 
 
 function Login() {
-  const history = useHistory();
+  const dispatch = useDispatch();
 
   const onSubmitHandler = (evt) => {
     evt.preventDefault();
-    history.push(AppRoute.MAIN);
+    dispatch(login());
   }
 
   return (
