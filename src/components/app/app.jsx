@@ -1,30 +1,32 @@
+import {
+  Switch,
+  Route,
+  Router
+} from 'react-router-dom';
+import Main from '../main/main';
+import Login from '../login/login';
+import {createBrowserHistory} from 'history';
+
+const browserHistory = createBrowserHistory();
+
+const AppRoute = {
+  LOGIN: '/login',
+  MAIN: '/',
+};
+
 function App() {
-    return (
-      <div className="login-container">
-        <section className="login-wrapper">
-          <header className="title-box">
-            <h1 className="title-box__title">Contacts book</h1>
-          </header>
-          <div className="login-form">
-            <form className="login-form__form" action="#" method="post">
-              <ul className="login-form__list">
-                <li className="login-form__item">
-                  <label className="login-form__label" htmlFor="email">E-mail</label>
-                  <input className="login-form__input" id="email" type="email"/>
-                </li>
-                <li className="login-form__item">
-                  <label className="login-form__label" htmlFor="password">Password</label>
-                  <input className="login-form__input" id="password"/>
-                </li>
-                <li className="login-form__item">
-                  <button className="login-form__button" type="submit">Sign in</button>
-                </li>
-              </ul>
-            </form>
-          </div>
-        </section>
-      </div>
-    );
+  return (
+    <Router history={browserHistory}>
+      <Switch>
+        <Route exact path={AppRoute.MAIN}>
+          <Main/>
+        </Route>
+        <Route exact path={AppRoute.LOGIN}>
+          <Login/>
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
