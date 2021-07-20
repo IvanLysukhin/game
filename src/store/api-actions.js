@@ -1,3 +1,5 @@
+import {loadContacts} from './actions';
+
 const ApiRoute = {
   CONTACTS : '/contacts'
 }
@@ -5,6 +7,6 @@ const ApiRoute = {
 export const fetchContacts = () => (dispatch, _getState, api) => (
   api.get(ApiRoute.CONTACTS)
     .then(({data}) => {
-     console.log(data);
+     dispatch(loadContacts(data))
     })
 );
