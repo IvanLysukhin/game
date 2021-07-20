@@ -6,13 +6,9 @@ import {
 import Main from '../main/main';
 import Login from '../login/login';
 import {createBrowserHistory} from 'history';
+import {AppRoute} from '../../constants';
 
 const browserHistory = createBrowserHistory();
-
-const AppRoute = {
-  LOGIN: '/login',
-  MAIN: '/',
-};
 
 function App() {
   return (

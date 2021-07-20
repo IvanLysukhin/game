@@ -1,4 +1,15 @@
+import {useHistory} from 'react-router-dom';
+import {AppRoute} from '../../constants';
+
+
 function Login() {
+  const history = useHistory();
+
+  const onSubmitHandler = (evt) => {
+    evt.preventDefault();
+    history.push(AppRoute.MAIN);
+  }
+
   return (
     <div className="login-container">
       <section className="login-wrapper">
@@ -6,7 +17,12 @@ function Login() {
           <h1 className="title-box__title">Contacts book</h1>
         </header>
         <div className="login-form">
-          <form className="login-form__form" action="#" method="post">
+          <form
+            className="login-form__form"
+            action="#"
+            method="post"
+            onSubmit={onSubmitHandler}
+          >
             <ul className="login-form__list">
               <li className="login-form__item">
                 <label className="login-form__label" htmlFor="email">E-mail</label>
