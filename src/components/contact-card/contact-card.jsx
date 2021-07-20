@@ -1,6 +1,15 @@
+import {useDispatch} from 'react-redux';
+import {deleteContact} from "../../store/api-actions";
+
 function ContactCard({contact}) {
-  console.log(contact)
   const {name, number, avatar, id} = contact;
+
+  const dispatch = useDispatch();
+
+  const onDeleteBtnClick = () => {
+    dispatch(deleteContact(id));
+  };
+
   return (
     <li className="contacts-item contact">
       <h3 className="visually-hidden">Contact card</h3>
@@ -18,7 +27,7 @@ function ContactCard({contact}) {
           </button>
         </li>
         <li className="contact__buttons-item">
-          <button className="contact__button" name="delete">
+          <button className="contact__button" name="delete" onClick={onDeleteBtnClick}>
             <svg className="contact__button-pic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="64px"
                  height="64px">
               <path fill="#E04F5F"
