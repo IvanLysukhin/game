@@ -5,10 +5,22 @@ import reportWebVitals from './reportWebVitals';
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 import {appReducer} from "./store/reducer";
+import{createAPI} from './api';
+import {fetchContacts} from './store/api-actions';
+
+const api = createAPI();
 
 const store = configureStore({
   reducer: appReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: api,
+      },
+    })
 });
+
+store.dispatch(fetchContacts());
 
 ReactDOM.render(
   <React.StrictMode>

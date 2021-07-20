@@ -3,7 +3,7 @@ import {AuthorizationStatus} from "../constants";
 import {login} from './actions';
 
 const initialState = {
-  authStatus: AuthorizationStatus.NO_AUTH,
+  authStatus: AuthorizationStatus.AUTH,
 };
 
 export const appReducer = createReducer(initialState, (builder) => {

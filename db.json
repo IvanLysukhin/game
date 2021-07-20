@@ -1,0 +1,5 @@
+{
+  "contacts": [
+    { "id": 100, "name": "John Smith", "avatar": "img.jpg" }
+  ]
+}
