@@ -20,7 +20,7 @@ const store = configureStore({
     })
 });
 
-store.dispatch(fetchContacts());
+// store.dispatch(fetchContacts());
 store.dispatch(checkAuth());
 
 ReactDOM.render(
