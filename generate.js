@@ -1,6 +1,11 @@
 module.exports = () => {
   const faker = require('faker');
-  const data = {contacts: []}
+  const data = {
+    contacts: [],
+    login: {
+      token: faker.datatype.number(),
+    },
+  }
 
   for (let i = 1; i <= 10; i++) {
     data.contacts.push({

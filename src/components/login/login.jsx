@@ -1,14 +1,34 @@
 import {useDispatch} from 'react-redux';
-import {login} from '../../store/actions';
-
+import {signIn} from '../../store/api-actions';
+import {useRef} from 'react';
 
 function Login() {
   const dispatch = useDispatch();
+  const email = useRef()
+  const password = useRef()
 
   const onSubmitHandler = (evt) => {
     evt.preventDefault();
-    dispatch(login());
+    if (email.current.value.length > 0
+      && password.current.value.length > 0) {
+
+      dispatch(signIn({
+        email: email.current.value,
+        password: password.current.value,
+
+      }));
+    }
   }
+  const onInputPasswordHandler = ({target}) => {
+    if (target.value.match(/\W/)) {
+      target.setCustomValidity('Incorrect password');
+    } else {
+      target.setCustomValidity('');
+    }
+
+    target.reportValidity();
+  };
+
 
   return (
     <div className="login-container">
@@ -26,11 +46,22 @@ function Login() {
             <ul className="login-form__list">
               <li className="login-form__item">
                 <label className="login-form__label" htmlFor="email">E-mail</label>
-                <input className="login-form__input" id="email" type="email"/>
+                <input
+                  className="login-form__input"
+                  id="email"
+                  type="email"
+                  ref={email}
+                />
               </li>
               <li className="login-form__item">
                 <label className="login-form__label" htmlFor="password">Password</label>
-                <input className="login-form__input" id="password"/>
+                <input
+                  className="login-form__input"
+                  type="password"
+                  id="password"
+                  ref={password}
+                  onInput={onInputPasswordHandler}
+                />
               </li>
               <li className="login-form__item">
                 <button className="login-form__button" type="submit">Sign in</button>

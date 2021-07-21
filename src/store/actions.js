@@ -6,9 +6,10 @@ export const ActionType = {
   ADD_CONTACT: 'ADD_CONTACT',
   DELETE_CONTACT: 'DELETE_CONTACT',
   UPDATE_CONTACT: 'UPDATE_CONTACT',
+  REQUIRED_AUTHORIZATION: 'REQUIRED_AUTHORIZATION',
 };
 
-export const login = createAction(ActionType.LOGIN);
+// export const signIn = createAction(ActionType.LOGIN);
 
 export const loadContacts = createAction(ActionType.LOAD_CONTACTS, (contacts) => ({
   payload: contacts,
@@ -25,4 +26,8 @@ export const removeContact = createAction(ActionType.DELETE_CONTACT, (id) => ({
 export const updateContact = createAction(ActionType.UPDATE_CONTACT, (contact) => ({
   payload: contact,
 }));
+export const requireAuthorization = createAction(ActionType.REQUIRED_AUTHORIZATION,(status) => ({
+  payload: status,
+}));
+
 

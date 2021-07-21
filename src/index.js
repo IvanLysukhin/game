@@ -4,9 +4,9 @@ import App from '../src/components/app/app';
 import reportWebVitals from './reportWebVitals';
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
-import {appReducer} from "./store/reducer";
+import {appReducer} from './store/reducer';
 import{createAPI} from './api';
-import {fetchContacts} from "./store/api-actions";
+import {checkAuth, fetchContacts} from './store/api-actions';
 
 const api = createAPI();
 
@@ -21,6 +21,7 @@ const store = configureStore({
 });
 
 store.dispatch(fetchContacts());
+store.dispatch(checkAuth());
 
 ReactDOM.render(
   <React.StrictMode>
