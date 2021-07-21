@@ -1,14 +1,27 @@
-import {useDispatch} from 'react-redux';
-import {deleteContact} from "../../store/api-actions";
+import {useDispatch, useSelector} from 'react-redux';
+import {deleteContact} from '../../store/api-actions';
+import {useState} from 'react';
+import EditForm from '../edit-form/edit-form';
 
 function ContactCard({contact}) {
   const {name, number, avatar, id} = contact;
 
+  const [editId, setEditId] = useState();
   const dispatch = useDispatch();
 
   const onDeleteBtnClick = () => {
     dispatch(deleteContact(id));
   };
+
+  const onEditBtnClick = (id) => {
+    setEditId(id);
+  }
+
+  if (editId === id) {
+    return <EditForm key={'edit form'} contact={contact} undoHandler={onEditBtnClick}/>
+  }
+
+
 
   return (
     <li className="contacts-item contact">
@@ -18,7 +31,9 @@ function ContactCard({contact}) {
       <a className="contact__number" href={`tel:${number}`}>{number}</a>
       <ul className="contact__buttons-list">
         <li className="contact__buttons-item">
-          <button className="contact__button" name="edit">
+          <button className="contact__button" name="edit" onClick={() => {
+            onEditBtnClick(id)
+          }}>
             <svg className="contact__button-pic" fill="#4a90e2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                  width="24px" height="24px">
               <path

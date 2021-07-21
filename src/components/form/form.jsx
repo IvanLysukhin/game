@@ -11,14 +11,12 @@ function Form() {
   const number = useRef();
   const button = useRef();
 
-  const sendStatus = true;
   const fileReader = new FileReader();
 
   const dispatch = useDispatch();
 
   const onAvatarChangeHandler = ({target}) => {
-    let file = target.files[0];
-
+    const file = target.files[0];
     fileReader.readAsDataURL(file);
 
     fileReader.addEventListener('load', () => {
@@ -41,7 +39,6 @@ function Form() {
   };
 
   const onFormChange = () => {
-
     if (
       name.current.value.length > 0
       && !!name.current.value.trim()
@@ -87,7 +84,7 @@ function Form() {
         ref={number}
         placeholder="555-555-5555"
         format="###-###-####"
-        value={sendStatus ? '' : ''}
+        value={''}
       />
       <ul className="contact__buttons-list">
         <li className="contact__buttons-item">
