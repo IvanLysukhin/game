@@ -270,6 +270,7 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
 input[type='number'] {
   -moz-appearance: textfield;
 }
@@ -281,6 +282,10 @@ input[type='number'] {
 .navigation {
   display: flex;
   flex-direction: column;
+}
+
+.navigation__email {
+  text-align: center;
 }
 
 .navigation__button {
@@ -297,5 +302,27 @@ input[type='number'] {
 
 .navigation__button:hover {
   background-color: lightblue;
+}
+
+.navigation__search-box {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+
+.navigation__search-button {
+  position: absolute;
+  margin-left: -24px;
+  width: 24px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation__loupe {
+  width: 100%;
+  height: 100%;
 }
 

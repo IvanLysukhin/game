@@ -6,7 +6,7 @@ import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 import {appReducer} from './store/reducer';
 import{createAPI} from './api';
-import {checkAuth, fetchContacts} from './store/api-actions';
+import {checkAuth} from './store/api-actions';
 
 const api = createAPI();
 

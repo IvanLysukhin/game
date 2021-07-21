@@ -1,4 +1,4 @@
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {deleteContact} from '../../store/api-actions';
 import {useState} from 'react';
 import EditForm from '../edit-form/edit-form';

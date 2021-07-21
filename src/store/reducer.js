@@ -1,12 +1,13 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {AuthorizationStatus} from '../constants';
-import {loadContacts, addContact, removeContact, updateContact, requireAuthorization} from './actions';
+import {loadContacts, addContact, removeContact, updateContact, requireAuthorization, searchContacts} from './actions';
 
 const initialState = {
   authStatus: AuthorizationStatus.NO_AUTH,
   contacts: [],
   isDataLoaded: false,
   userEmail: '',
+  searchResult: [],
 };
 
 export const appReducer = createReducer(initialState, (builder) => {
@@ -31,8 +32,11 @@ export const appReducer = createReducer(initialState, (builder) => {
       })
     })
     .addCase(requireAuthorization, (state, action) => {
-    state.authStatus = action.payload.status;
-    state.userEmail = action.payload.email;
-    state.isDataLoaded = true;
-  })
+      state.authStatus = action.payload.status;
+      state.userEmail = action.payload.email;
+      state.isDataLoaded = true;
+    })
+    .addCase(searchContacts, (state, action) => {
+      state.searchResult = action.payload;
+    })
 });
