@@ -4,7 +4,9 @@ function QCard ({question, answer, setQuestion, setCount}) {
   const inputRef = useRef();
 
   const answerHandler = () => {
-    if (inputRef.current.value === answer) {
+    const userAnswer = inputRef.current.value.trim().toLowerCase()
+    const correctAnswer = answer.trim().toLowerCase()
+    if (userAnswer === correctAnswer) {
       setCount((prev) => {
         prev += 1;
         return prev;
