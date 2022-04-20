@@ -1,37 +1,48 @@
-import {
-  Switch,
-  Route,
-  Router,
-  Redirect
-} from 'react-router-dom';
-import Main from '../main/main';
-import Login from '../login/login';
-import {createBrowserHistory} from 'history';
-import {AppRoute, AuthorizationStatus} from '../../constants';
-import {useSelector} from 'react-redux';
-import {getAuthStatus, getLoadStatus} from '../../store/selectors';
+import React, {useState} from 'react';
+import Map from "../Map/Map";
 
-const browserHistory = createBrowserHistory();
+const DAYS = 9862;
+const GAME_MODE = 'main';
+
+const initialState = {
+  days: 0,
+  gameMode: GAME_MODE,
+};
 
 function App() {
+  const [state, setState] = useState(initialState);
 
-  const authStatus = useSelector(getAuthStatus);
-  const loadStatus = useSelector(getLoadStatus);
-  if (!loadStatus) {
-    return <h1>Loading...</h1>
-  }
+  const changeState = (mode,value) => {
+    setState((prevState) => ({
+      ...prevState,
+      [mode]: value,
+    }))
+  };
+
+  const daysInputHandler = ({target}) => {
+    changeState('days', +target.value);
+  };
+
+  const firstQaSubmitClick = () => {
+    if (state.days === DAYS) {
+      changeState('gameMode', GAME_MODE);
+    }
+  };
 
   return (
-    <Router history={browserHistory}>
-      <Switch>
-        <Route exact path={AppRoute.MAIN}>
-          {authStatus !== AuthorizationStatus.AUTH ? <Redirect to={AppRoute.LOGIN}/> : <Main/>}
-        </Route>
-        <Route exact path={AppRoute.LOGIN}>
-          {authStatus === AuthorizationStatus.AUTH ? <Redirect to={AppRoute.MAIN}/> : <Login/>}
-        </Route>
-      </Switch>
-    </Router>
+    <main className="main">
+      {
+        state.gameMode !== GAME_MODE ? (
+          <div className="first-qa">
+          <p>Сколько дней ты радуешь этот мир?</p>
+          <input type="number" onChange={daysInputHandler}/>
+          <button className="btn-1" onClick={firstQaSubmitClick}>Ответ</button>
+        </div>
+        ) : (
+          <Map/>
+        )
+      }
+    </main>
   );
 }
 
