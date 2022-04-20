@@ -40,9 +40,6 @@
   /*background-image: url("../img/back.jpg");*/
   background-color: palegreen;
   height: inherit;
-  background-size: cover;
-  background-position-y: -300px;
-  background-repeat: no-repeat;
 }
 
 input[type='number'] {
