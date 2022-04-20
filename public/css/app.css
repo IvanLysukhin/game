@@ -37,7 +37,8 @@
 }
 
 #root {
-  background-image: url("../img/back.jpg");
+  /*background-image: url("../img/back.jpg");*/
+  background-color: palegreen;
   height: inherit;
   background-size: cover;
   background-position-y: -300px;
@@ -64,7 +65,7 @@ body {
 .main {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
 }
 .first-qa {
@@ -120,7 +121,8 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 7px 15px antiquewhite;
 }
-
+/*
+https://github.com/IvanLysukhin/game*/
 .card input {
   height: 35px;
   font-size: 20px;
