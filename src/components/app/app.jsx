@@ -33,11 +33,14 @@ function App() {
     <main className="main">
       {
         state.gameMode === GAME_MODE ? (
-          <div className="first-qa">
-          <p>Сколько дней ты радуешь этот мир?</p>
-          <input type="number" onChange={daysInputHandler}/>
-          <button className="btn-1" onClick={firstQaSubmitClick}>Ответ</button>
-        </div>
+          <div className="first-container">
+            <div className="first-qa">
+              <p>Сколько дней ты радуешь этот мир?</p>
+              <input type="number" onChange={daysInputHandler}/>
+              <button className="btn-1" onClick={firstQaSubmitClick}>Ответ</button>
+            </div>
+            <img src="../../img/back.jpg" alt="pic" width="400" height="500"/>
+          </div>
         ) : (
           <Map/>
         )
