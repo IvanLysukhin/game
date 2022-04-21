@@ -7,55 +7,67 @@ const POINTERS = [
     id:1,
     questionObj:
       {
-        question: 'Вопрос 1'
-        , answer: 'Ответ'
+        question: 'Номер участка'
+        , answer: '271'
       }
       },
   {
     id:2,
     questionObj:
       {
-        question: 'Вопрос 2'
-        , answer: 'Ответ'
+        question: 'За какую футбольную команду я заработал денег?'
+        , answer: 'Надежда'
       }
       },
   {
     id:3,
     questionObj:
       {
-        question: 'Вопрос 3'
-        , answer: 'Ответ'
+        question: 'В каком году я в последний раз был в Армении?'
+        , answer: '2013'
+    , tip: '2 этаж',
       }
       },
   {
     id:4,
     questionObj:
       {
-        question: 'Вопрос 4'
-        , answer: 'Ответ'
+        question: 'Сколько раз слово "сука" сказал я в скит план?'
+        , answer: '12' ,
+        tip: 'Кухня дверка',
       }
       },
   {
     id:5,
     questionObj:
       {
-        question: 'Вопрос 5'
-        , answer: 'Ответ'
+        question: 'кем я хотел стать в детстве?'
+        , answer: 'фокусник'
       }
       },
   {
     id:6,
     questionObj:
       {
-        question: 'Вопрос 6'
-        , answer: 'Ответ'
+        question: 'Где я выкурил первый кальян?'
+        , answer: 'Крафт'
+      }
+      },
+  {
+    id:7,
+    questionObj:
+      {
+        question: 'Любимый персонаж в игре Герои 3?'
+        , answer: 'Тамика'
       }
       },
 ];
 
 function Map () {
+  //.slice(0, count)
   const [question, setQuestion] = useState(null);
   const [count, setCount] = useState(1);
+  console.log(POINTERS.length)
   return (
     <div className="map">
       <img src="../../img/map.jpg" alt="map" height="550" width="400"/>
@@ -65,6 +77,7 @@ function Map () {
           question={question?.question}
           id={question?.id}
           answer={question?.answer}
+          tip={question?.tip}
           setQuestion={setQuestion}
           setCount={setCount}
         />

@@ -25,14 +25,14 @@ function App() {
 
   const firstQaSubmitClick = () => {
     if (state.days === DAYS) {
-      changeState('gameMode', GAME_MODE);
+      changeState('gameMode', '');
     }
   };
 
   return (
     <main className="main">
       {
-        state.gameMode !== GAME_MODE ? (
+        state.gameMode === GAME_MODE ? (
           <div className="first-qa">
           <p>Сколько дней ты радуешь этот мир?</p>
           <input type="number" onChange={daysInputHandler}/>

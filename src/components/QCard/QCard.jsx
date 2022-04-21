@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react';
 
-function QCard ({question, answer, setQuestion, setCount}) {
+function QCard ({question, answer,tip, setQuestion, setCount}) {
   const inputRef = useRef();
 
   const answerHandler = () => {
@@ -19,7 +19,8 @@ function QCard ({question, answer, setQuestion, setCount}) {
 
   return (
    <div className="card">
-     <p>{question}</p>
+     {tip && <p className="tip">{tip}</p>}
+     {/*<p className="question">{question}</p>*/}
      <input type="text" ref={inputRef}/>
      <button onClick={answerHandler}>Дальше</button>
    </div>
